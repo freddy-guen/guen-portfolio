@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fichier Css personnel -->
+    <link rel="stylesheet" href="<?=ASSETS?>portfolio/css/style.css">
+    <!-- Injection de Line Icons. Line Icons nous permet d'avoir d'utiliser des icones -->
+    <link rel="stylesheet" href="https://cdn.lineicons.com/3.0/lineicons.css">
+    <!-- Injection de Swiper Css -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+
+    <title> <?= WEBSITE_TITLE . " | " . $data['page_title']?> </title>
+</head>
+<body>
+<!-- Header -->
+<header class="header" id="header">
+    <!-- nav -->
+    <nav class="nav container padd-15">
+        <!-- Nav logo -->
+        <a href="#" class="nav-logo">
+            <h2>GUEN</h2>
+        </a>
+        <!-- Nav menu -->
+        <div class="nav-menu" id="nav-menu">
+            <!-- Nav list -->
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projets" class="nav-link">Projets</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experience" class="nav-link">Expérience</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Me contacter</a>
+                </li>
+            </ul>
+        </div>
+        <!-- Nav bouton -->
+        <div class="nav-btns">
+            <!-- Bouton de changement de thème -->
+            <i class="lni lni-pallet change-theme" id="theme-change"></i>
+            <!-- Toggle bouton -->
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="lni lni-grid-alt"></i>
+            </div>
+        </div>
+    </nav>
+</header>
+

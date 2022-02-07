@@ -1,0 +1,198 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+
+/*=============== LES VARIABLES CSS ===============*/
+:root {
+    --header-height: 3.5rem; /*56px*/
+
+    /*========== Les couleurs ==========*/
+    /*On utilise le mode HSL ici :  HSL(hue, saturation, lightness)*/
+    /*Pour en savoir plus sur HSL et les conversion, consultez https://www.w3schools.com/colors/colors_hsl.asp*/
+    --primary-color-hue:352;
+    --dark-color-lightness:17%;
+    --light-color-lightness:92%;
+    --white-color-lightness:100%;
+
+    --color-white: hsl(252, 30%, 100%); /*ou --color-white: hsl(252, 30%, var(--white-color-lightness));*/
+    --color-light: hsl(252, 30%, 92%); /*ou --color-light: hsl(252, 30%, var(--light-color-lightness));*/
+    --color-gray: hsl(252, 15%, 65%);
+    --color-primary: hsl(352, 75%, 60%); /* ou --color-primary: hsl(var(--primary-color-hue), 75%, 60%);*/
+    --color-dark: hsl(252, 30%, 17%); /*ou --color-dark: hsl(252, 30%, var(--dark-color-lightness));*/
+
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: 'Rubik', sans-serif;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.75rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+
+    /*========== Font weight ==========*/
+    --font-medium: 400;
+    --font-semi-bold: 600;
+
+    /*========== Margenes Bottom ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --m-0-5: .5rem;
+    --m-0-75: .75rem;
+    --m-1: 1rem;
+    --m-1-5: 1.5rem;
+    --m-2: 2rem;
+    --m-2-5: 2.5rem;
+
+    /*========== Card padding ==========*/
+    --card-padding:1.9rem 0.95rem;
+
+    /*========== Border radius ==========*/
+    --border-radius: 1.25rem;
+
+    /*========== Box shadow ==========*/
+    --box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
+}
+
+/*----- Les bases de l'application/site -----*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, button, input, textarea{
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+body{
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    line-height: 1.7; /*On définit la hauteur de la boîte d'une ligne. On peut voir ça comme l'espace entre lignes*/
+    font-weight: var(--font-medium);
+}
+img{
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle; /*définit la hauteur de la boîte d'une ligne.*/
+}
+ul{
+    list-style: none; /*On enlève les puces au début des listes ul*/
+}
+a{
+    text-decoration: none; /*Enlève le soulignement des liens hypertextes*/
+    color: var(--color-dark);
+}
+h1, h2, h3{
+    font-weight: var(--font-semi-bold);
+}
+h1{
+    font-size: var(--h1-font-size);
+}
+h2{
+    font-size: var(--h2-font-size);
+}
+h3{
+    font-size: var(--h3-font-size);
+}
+
+/*----- Layout -----*/
+.container{
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    /*On définit comment gérer le dépassement du contenu du bloc container. valeur hidden signifie que le contenu est
+    rogné si besoin pour s'inscrire dans la boîte de remplissage et aucune barre de défilement n'est affichée*/
+    overflow: hidden;
+}
+.padd-15{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/*----- Header -----*/
+.header{
+    width: 100%;
+    background-color: var(--color-light);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+/*----- Nav -----*/
+.nav{
+    /*On va positioner le bloc des ul à côté du logo et celui des boutons à côté des ul*/
+    display: flex;
+    /*On ajoute de l'espace entre les éléments. ça envoie le bloc des ul au milieu et les boutons au bout à droite*/
+    justify-content: space-between;
+    height: calc(var(--header-height) + 1.5rem); /*On fixe une hauteur*/
+    align-items: center; /*On aligne tout au milieu, ça redescend un petit peu le menu*/
+    column-gap: 3rem; /*permet de définir la taille des espaces entre les colonnes d'un élément.*/
+}
+.nav-logo{
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-semi-bold);
+    letter-spacing: 0.125rem; /*Espace entre les caractères*/
+    position: relative;
+}
+
+.nav-logo:after{  /*On va rajouter un petit point devant le logo*/
+    position: absolute;
+    content: '';
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    top: 56%;
+    right: -0.25rem;
+}
+.nav-menu{
+    /*Ceci va envoyer le bloc menu tout proche des boutons à droite*/
+    margin-left: auto;
+}
+.nav-list{
+    display: flex; /*Ceci range les li du menu en ligne*/
+    column-gap: 3rem; /*Ajoute un peu d'espace entre les éléments*/
+}
+.nav-link{
+    font-weight: var(--font-medium);
+    transition: .3s;
+}
+.nav-link:hover{
+    color: var(--color-primary);
+}
+.nav-btns{ /*On range les 2 boutons en ligne*/
+    display: inline-flex;
+    align-items: center;
+    column-gap: 1rem; /*un peu d'espace entre les boutons*/
+}
+.change-theme{
+    color: var(--color-dark);
+    font-size: 1.15rem;
+    cursor: pointer;
+}
+.nav-toggle{
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.nav-toggle{ /*On fait disparaitre le bouton qui représente l'Hamburger ici*/
+    display: none;
+}
+.active-link{
+    position: relative;
+}
+.active-link:before{ /*On va rajouter un petit point qui nous sert de curseur sur le lien actif du menu*/
+    content: '';
+    position: absolute;
+    bottom: -0.75rem;
+    left: 45%;
+    width: 0.3rem;
+    height: 0.3rem;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+}
+
+
+
+
+
+
+
+
+

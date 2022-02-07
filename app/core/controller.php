@@ -10,7 +10,7 @@ Class Controller
      * @param $view : la vue à passer
      * @param array $data : les données qu'on veut passer à la vue
      */
-    protected function view($view,$data = [])
+    protected function view($view, $data = [])
     {
         /**
          * si un fichier du nom $view.phtml existe on l'inclu
