@@ -97,9 +97,7 @@ h3{
     max-width: 1140px;
     margin-left: auto;
     margin-right: auto;
-    /*On définit comment gérer le dépassement du contenu du bloc container. valeur hidden signifie que le contenu est
-    rogné si besoin pour s'inscrire dans la boîte de remplissage et aucune barre de défilement n'est affichée*/
-    overflow: hidden;
+
 }
 .padd-15{
     padding-left: 15px;
@@ -188,11 +186,71 @@ h3{
     border-radius: 50%;
 }
 
+/*----- Accueil -----*/
+.home{
+    display: flex; /*ce qui va pousser les élément "presque" au milieu*/
+    justify-content: center; /*on justifife tout le contenu au milieu*/
+    align-items: center; /*les différents élément vont être placer au centre*/
+    height: 100vh; /*on définit une hauteur*/
+    min-height: 100vh; /*La hauteur minimum*/
+}
+.home .intro{
+    max-width: 540px; /*On définit une largeur maximale. Si on rajoute un background-color: red; en dessous on voit l'effet*/
+    text-align: center; /*On aligne les text du bloc au centre*/
+}
+.home .intro img{
+    margin-bottom: var(--m-1);
+    clip-path: circle(); /*pour rendre l'avatar circulaire*/
+}
+.home .intro .social-icons{ /*On met de l'espace entre le bloc haut des réseaux sociaux et le bloc bas*/
+    margin-top: var(--m-1-5);
+    margin-bottom: var(--m-2);
+}
+.home .intro .social-icons li{
+    display: inline-block; /*On met les icons des réseaux sociax sur une ligne*/
+}
+.home .intro .social-icons li:not(:last-child){
+    margin-right: var(--m-1-5); /*on met de l'espace entre les differents réseaux sociaux*/
+}
+.home .intro .social-icons a{
+    font-size: var(--h3-font-size); /*Augmente la taille des icones des réseaux*/
+}
+.btn-default{
+    color: #fff; /*couleur de texte du bouton*/
+    vertical-align: middle; /*Aligne le milieu de l'élément avec la hauteur donnée par la ligne de base de l'élément parent*/
+    background-color: var(--color-primary); /*couleur du bouton*/
+    display: inline-block;
+    /*La propriété transform modifie l'espace de coordonnées utilisé pour la mise en forme visuelle.
+    si on l'enlève je ne vois pas trop l'effet.*/
+    transform: perspective(1px) translateZ(0);
+}
+.btn{
+    padding: 0.75rem 2rem; /*on ajoute un écart*/
+    line-height: 1; /*On définit une hauteur pour le bouton*/
+    border-radius: var(--border-radius); /*le contour du bouton*/
+}
+/************On va rajouter une petite animation sur le bouton avec les lignes ci-dessous************/
+.btn:focus{
+    outline: 0; /*permet de cibler un élément lorsque celui-ci reçoit le focus exemple la souris qui passe dessus*/
+}
+.btn-default:hover{ /*lorsqu'on survole le bouton*/
+    animation-name: notre-button-push; /*On définit un nom d'animation qu'on va utiliser après*/
+    animation-duration: 0.3s; /*la durée de l'animation*/
+    animation-timing-function: linear; /*définit la façon dont une animation CSS doit se dérouler. Ici en ligne*/
+    /*On indique le nombre de cycles utilisés pour répéter l'animation avant que celle-ci s'arrête. Ici 1*/
+    /*Après si on change en mettant 2 ou 3 on verra bien un autre effet : ça va se repeter 2 ou 3 fois*/
+    animation-iteration-count: 1;
+}
 
-
-
-
-
+@keyframes notre-button-push{ /*@keyframes permet aux auteurs de définir les étapes qui composent la séquence d'une animation CSS*/
+    50%{
+        transform: scale(0.8);
+    }
+    100%{
+        transform: scale(1);  /*Si on le met à 5 on verra un autre effet lol*/
+    }
+}
+/***********Fin traitement animation bouton***********/
 
 
 

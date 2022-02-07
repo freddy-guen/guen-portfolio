@@ -2,7 +2,32 @@
 <!--On charge le header-->
 <?php $this->view("portfolio/header", $data); ?>
 
-<!-- Main -->
+<!-- Contenu principal -->
+<main class="main-content">
+    <!-- Page d'accueil -->
+    <section class="home" id="home">
+        <div class="container">
+            <!-- Intro -->
+            <div class="intro">
+                <!-- Image avatar -->
+                <img src="<?=ASSETS?>portfolio/img/avatar.png" alt="Guen" />
+                <!-- Information -->
+                <h1>Freddy Guenengafo</h1>
+                <span>Je suis <span class="info-text">Web Developper</span> </span>
+                <!-- Réseaux sociaux -->
+                <ul class="social-icons">
+                    <li><a href="#"><i class="lni lni-github-original"></i></a></li>
+                    <li><a href="#"><i class="lni lni-twitter-original"></i></a></li>
+                    <li><a href="#"><i class="lni lni-facebook-messenger"></i></a></li>
+                </ul>
+                <!-- Boutons -->
+                <div>
+                    <a href="#" class="btn btn-default">Me contacter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
 
 <!--On charge le footer-->
