@@ -62,7 +62,7 @@ body, button, input, textarea{
     font-size: var(--normal-font-size);
 }
 body{
-    background-color: var(--color-light);
+    background-color: white;
     color: var(--color-dark);
     line-height: 1.7; /*On définit la hauteur de la boîte d'une ligne. On peut voir ça comme l'espace entre lignes*/
     font-weight: var(--font-medium);
@@ -95,8 +95,7 @@ h3{
 /*----- Layout -----*/
 .container{
     max-width: 1140px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 
 }
 .padd-15{
@@ -190,7 +189,6 @@ h3{
 .home{
     display: flex; /*ce qui va pousser les élément "presque" au milieu*/
     justify-content: center; /*on justifife tout le contenu au milieu*/
-    align-items: center; /*les différents élément vont être placer au centre*/
     height: 100vh; /*on définit une hauteur*/
     min-height: 100vh; /*La hauteur minimum*/
 }
@@ -251,6 +249,55 @@ h3{
     }
 }
 /***********Fin traitement animation bouton***********/
-
+/*Boutons pour scroller vers le bas*/
+.defiler-bas{
+    position: absolute;
+    bottom: var(--m-2-5);
+    left: 0;
+    width: 100%;
+}
+.emballage-souris{
+    font-size: var(--small-font-size);
+    display: block;
+    margin: auto;
+    max-width: 100px;
+    text-align: center;
+}
+.souris{
+    border: 2px solid var(--color-dark);
+    display: block;
+    height: 1.75rem;
+    width: 1.25rem;
+    margin: auto;
+    margin-top: var(--m-0-75); /*un peu d'espace en haut pour séparer notre souris virtuelle du texte en haut*/
+    border-radius: var(--border-radius);
+    position: relative;
+}
+.souris .molette{
+    background-color: var(--color-dark);
+    border-radius: 50%;
+    width: 0.25rem;
+    height: 0.25rem;
+    position: absolute;
+    top: var(--m-0-5);
+    left: 40%;
+    display: block;
+    /*On va mettre en place une animation qu'on va appeler "animer-notre-souris" qui va bouger linéairement à l'infini*/
+    animation: animons-notre-souris 2s linear infinite;
+}
+@keyframes animons-notre-souris { /*Ici, la propriété top est animée en passant par les étapes 0%, 30% et 100%*/
+    0%{
+        top: 29%;
+    }
+    15%{
+        top: 50%;
+    }
+    50%{
+        top: 50%; /*Si on rajoute left: 50%; en dessous on verra que au milieu il ira vers sa gauche*/
+    }
+    100%{
+        top: 29%; /*il est le même que le premier*/
+    }
+}
 
 
