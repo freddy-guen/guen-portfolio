@@ -16,7 +16,7 @@
     --color-white: hsl(252, 30%, 100%); /*ou --color-white: hsl(252, 30%, var(--white-color-lightness));*/
     --color-light: hsl(252, 30%, 92%); /*ou --color-light: hsl(252, 30%, var(--light-color-lightness));*/
     --color-gray: hsl(252, 15%, 65%);
-    --color-primary: hsl(352, 75%, 60%); /* ou --color-primary: hsl(var(--primary-color-hue), 75%, 60%);*/
+    --color-primary: rgba(19,87,190,0.84); /* avant c'était hsl(352, 75%, 60%); ou  --color-primary: hsl(var(--primary-color-hue), 75%, 60%);*/
     --color-dark: hsl(252, 30%, 17%); /*ou --color-dark: hsl(252, 30%, var(--dark-color-lightness));*/
 
     /*========== Font and typography ==========*/
@@ -92,15 +92,28 @@ h3{
     font-size: var(--h3-font-size);
 }
 
-/*----- Layout -----*/
+/*----- Layout & Classes Css réutilisables -----*/
 .container{
     max-width: 1140px;
     margin: auto;
 
 }
+.row{
+    display: flex; /*Déclarer comme flexible => va disposer les élément cote à cote (ligne)*/
+    flex-wrap: wrap; /*Les éléments flexibles sont disposés sur plusieurs lignes*/
+}
 .padd-15{
     padding-left: 15px;
     padding-right: 15px;
+}
+.section .container{
+    padding-top: 3.75rem;
+    padding-bottom: 4.75rem;
+}
+.section-tittle{
+    font-size: 2.25rem;
+    margin-left: var(--m-0-75);
+    margin-bottom: var(--m-2-5);
 }
 
 /*----- Header -----*/
@@ -300,4 +313,76 @@ h3{
     }
 }
 
+/*----- A propos de moi-----*/
+.about-img{
+    /*Le 1er 0 de flex s'appelle "flex-grow". Sa valeur n'est jamais négative. Elle indique la quantité d'espace restant
+     que l'élément devrait consommer dans un conteneur flexible relativement à la taille des autres éléments du même conteneur.
+     Le 2e s'appelle "flex-shrink (jamais négative). So rôle, Si la taille de l'ensemble des éléments flexibles est supérieure à la taille
+     du conteneur, les éléments seront comprimés selon leur facteur flex-shrink. Le 3e "flex-basis" détermine la base de
+     flexibilité utilisée comme taille initiale principale pour un élément flexible. ici c'est 25% ce qui permet de séparer l'image du contenu (about-content)*/
+    flex: 0 0 25%;  /*flex définit la capacité d'un élément flexible à modifier ses dimensions afin de remplir l'espace disponible de son conteneur*/
+    max-width: 25%;
+    /*on peut ajouter background-color: yellow; ici et background-color: red; dans .about-content ci-dessous pour voir la division*/
+}
+.about-content{
+    flex: 0 0 75%;
+    max-width: 75%; /*car 100% - 25% précédent dans about-img il va rester 75% au niveau du bloc*/
+}
+.image{
+    clip-path: circle(); /*pour rendre l'avatar circulaire*/
+}
+.about-content .about-text,
+.about-content .competences{
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.arrondi{
+    background-color: rgba(232,230,182,0.42);
+    padding: var(--card-padding); /*on met un peut d'espace entre le texte et le cadre (à gauche, droite, haut et bas)*/
+    border-radius: var(--border-radius);
+}
+.about-text p{
+    text-align: justify;
+    margin-bottom: var(--m-1); /*on ajoute un espace entre le texte et le bouton de téléchargement du CV*/
+}
+.about-content .competences .competence-item{
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.about-content .competences .competence-item h4{
+    margin-bottom: var(--m-0-75); /*on ajout une marge en dessous de chaque titre de compétences */
+}
+.about-content .competences .competence-item .progress{ /*progresse bar des compétences*/
+    background-color: var(--color-light); /*sa couleur*/
+    height: 0.45rem; /*On lui attribue une petite hauteur*/
+    border-radius: var(--border-radius); /*avec une bordure*/
+    width: 100%; /*sa longueur dans le bloc*/
+    position: relative; /*elle est positionné relativement au bloc*/
+}
+.about-content .competences .competence-item:not(:last-child){ /*une marge en bas de chaque item sauf le dernier pour éviter le débordement dans le bloc*/
+    margin-bottom: var(--m-1-5);
+}
+.about-content .competences .competence-item .progress .progress-in{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    border-radius: var(--border-radius);
+    /*Une fois que ceci est fait, il faut alors écrire le css dans la balise div ayant la class progress-in*/
+}
+.about-content .competences .competence-item .competence-pourcentage{
+    position: absolute;
+    right: 0;
+    top: -2.5rem;
+}
+.stat-item{
+    flex: 0 0 25%;
+    max-width: 25%;
+    margin-top: var(--m-2-5);
+    text-align: center;
+}
+.stat-item i{
+    font-size: var(--h2-font-size);
+    color: var(--color-gray);
+}
 
