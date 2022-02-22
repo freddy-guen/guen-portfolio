@@ -96,7 +96,6 @@ h3{
 .container{
     max-width: 1140px;
     margin: auto;
-
 }
 .row{
     display: flex; /*Déclarer comme flexible => va disposer les élément cote à cote (ligne)*/
@@ -108,9 +107,9 @@ h3{
 }
 .section .container{
     padding-top: 3.75rem;
-    padding-bottom: 4.75rem;
+    padding-bottom: 0.5rem;  /*4.75rem;*/
 }
-.section-tittle{
+.section-title{
     font-size: 2.25rem;
     margin-left: var(--m-0-75);
     margin-bottom: var(--m-2-5);
@@ -376,13 +375,81 @@ h3{
     top: -2.5rem;
 }
 .stat-item{
-    flex: 0 0 25%;
-    max-width: 25%;
-    margin-top: var(--m-2-5);
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    margin-top:  1rem; /*var(--m-2-5);*/
     text-align: center;
 }
 .stat-item i{
-    font-size: var(--h2-font-size);
+    /*font-size: var(--h2-font-size);
+    color: var(--color-gray);*/
+}
+
+/*----- Expérience -----*/
+.etudes{ /*on divise en quelque sorte en 2 colonnes etudes et expérience*/
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.experience{ /*on divise en quelque sorte en 2 colonnes etudes et expérience*/
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.timeline-box{
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.timeline{
+    background-color: var(--color-light); /*couleur arrière plan*/
+    padding: 1.9rem 0.95rem; /*marge intérieure haut/bas et gauche/droite*/
+    border-radius: var(--border-radius); /*bordure*/
+    width: 100%;
+    position: relative;
+}
+.timeline .timeline-item{
+    position: relative;
+    padding-left: 2.5rem; /*marge gauche de chaque item*/
+    padding-bottom: 1.9rem; /*marge en bas de chaque item*/
+}
+.timeline .timeline-item:last-child{ /*le dernier item ne doit pas avoir de marge en bas comme les autres*/
+    padding-bottom: 0;
+}
+.timeline .timeline-item:before{ /*on crée la barre verticale sur le côté*/
+    content: '';
+    width: 1px;
+    position: absolute;
+    height: 100%;
+    left: var(--m-0-5);
+    background-color: var(--color-primary);
+    top: 0;
+}
+.timeline .timeline-icon{ /*on bouge les logos de casquette diplôme et malettes dans la barre comme séparateur*/
+    position: absolute;
+    left: -0.25rem;
+    top: 0;
+    font-size: 1.5rem;
+    background-color: var(--color-light);
+    color: var(--color-primary);
+}
+.timeline .timeline-date{
+    font-size: var(--small-font-size);
     color: var(--color-gray);
 }
+.timeline .timeline-date .lni{
+    margin-right: 0.3rem;
+}
+.timeline .timeline-title{
+    margin: var(--m-0-75) 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
