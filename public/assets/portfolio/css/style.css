@@ -495,6 +495,25 @@ h3{
     display: flex;
     margin-bottom: var(--m-1-5);
 }
+.projets-item.hide{ /*utiliser pour le filtre au niveau des projets*/
+    display: none;
+}
+.projets-item.show{ /*utiliser pour le filtre au niveau des projets*/
+    display: block;
+    animation: showItem 0.5s ease;
+}
+@keyframes showItem { /*traitement appelé dans le cas précédent*/
+    0%
+    {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    100%
+    {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 .projets-item .inner
 {
     background:var(--color-white) ;
@@ -682,7 +701,6 @@ h3{
     text-align: center;
 }
 
-/*---RESPONSIVE---*/
 
 @media only screen and (max-width:968px) {
     .about-content,
@@ -798,6 +816,12 @@ h3{
         max-width: 100%;
     }
 }
+
+
+
+
+
+
 
 
 
